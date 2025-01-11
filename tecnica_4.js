@@ -6,21 +6,23 @@ const faturamentoMensal = {
   Outros: 19849.53,
 }
 
-function calcularPercentuais(faturamento) {
-  const valorTotal = Object.values(faturamento).reduce((total, valor) => total + valor, 0)
+function executeTecnica4() {
+  const result = document.getElementById("result_tecnica4")
 
-  const percentuais = Object.fromEntries(
-    Object.entries(faturamento).map(([estado, valor]) => [estado, (valor / valorTotal) * 100])
+  const valorTotal = Object.values(faturamentoMensal).reduce(
+    (total, valor) => total + valor,
+    0
   )
 
-  return { valorTotal, percentuais }
-}
+  const percentuais = Object.fromEntries(
+    Object.entries(faturamentoMensal).map(([estado, valor]) => [
+      estado,
+      (valor / valorTotal) * 100,
+    ])
+  )
 
-const { valorTotal, percentuais } = calcularPercentuais(faturamentoMensal)
-
-function executeTecnica4() {
-  console.log(`Faturamento Total: R$ ${valorTotal.toFixed(2)}`)
+  result.innerHTML = `Faturamento Total: R$ ${valorTotal.toFixed(2)}<br/>`
   for (const [estado, percentual] of Object.entries(percentuais)) {
-    console.log(`${estado}: ${percentual.toFixed(2)}%`)
+    result.innerHTML += `${estado}: ${percentual.toFixed(2)}%<br/>`
   }
 }

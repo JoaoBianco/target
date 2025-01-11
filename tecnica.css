@@ -1,0 +1,41 @@
+p {
+  margin: 0;
+}
+
+button {
+  cursor: pointer;
+  background-color: rgb(220, 220, 220);
+  padding: 0.5rem 1rem;
+  color: black;
+  border-radius: 5px;
+  border: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+input {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid rgb(200, 200, 200);
+}
+
+button:is(:focus-within, :hover) {
+  background-color: rgb(200, 200, 200);
+}
+
+.wrapper {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+}
+
+.container :where(h2, input, button) {
+  margin-bottom: 1rem;
+}

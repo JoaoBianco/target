@@ -4,9 +4,10 @@ function executeTecnica1() {
   let K = 0
 
   while (K < INDICE) {
-      K += 1
-      SOMA += K
+    K += 1
+    SOMA += K
   }
 
-  console.log(SOMA)
+  const result = document.getElementById("result_tecnica1")
+  result.innerHTML = `Soma dos ${INDICE} primeiros números inteiros: ${SOMA}`
 }

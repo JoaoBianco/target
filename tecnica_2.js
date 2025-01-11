@@ -1,23 +1,22 @@
-function isFibonacci(num) {
+function executeTecnica2() {
+  const num = Number(document.getElementById("input_tecnica2").value) || 0
+  const result = document.getElementById("result_tecnica2")
+
   if (num < 0) {
-      return `${num} não pertence à sequência de Fibonacci.`
+    return (result.innerHTML = `${num} não pertence à sequência de Fibonacci.`)
   }
 
-  let a = 0, b = 1, fib = 0
+  let a = 0,
+    b = 1,
+    fib = 0
 
   while (fib < num) {
-      fib = a + b
-      a = b
-      b = fib
+    fib = a + b
+    a = b
+    b = fib
   }
 
-  if (fib === num || num === 0) {
-      return `${num} pertence à sequência de Fibonacci.`
-  } else {
-      return `${num} não pertence à sequência de Fibonacci.`
-  }
-}
-
-function executeTecnica2(number) {
-  console.log(isFibonacci(number))
+  fib === num || num === 0
+    ? (result.innerHTML = `${num} pertence à sequência de Fibonacci.`)
+    : (result.innerHTML = `${num} não pertence à sequência de Fibonacci.`)
 }
